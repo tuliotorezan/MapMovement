@@ -1,0 +1,36 @@
+P:\OneDrive\MESTRADO\IHM\IHM - v1\IMH - MANIPULADOR\IMH - MANIPULADOR\bin\Debug\IMH - MANIPULADOR.exe.config
+P:\OneDrive\MESTRADO\IHM\IHM - v1\IMH - MANIPULADOR\IMH - MANIPULADOR\bin\Debug\IMH - MANIPULADOR.exe
+P:\OneDrive\MESTRADO\IHM\IHM - v1\IMH - MANIPULADOR\IMH - MANIPULADOR\bin\Debug\IMH - MANIPULADOR.pdb
+P:\OneDrive\MESTRADO\IHM\IHM - v1\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.csprojAssemblyReference.cache
+P:\OneDrive\MESTRADO\IHM\IHM - v1\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH___MANIPULADOR.Form1.resources
+P:\OneDrive\MESTRADO\IHM\IHM - v1\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH___MANIPULADOR.Properties.Resources.resources
+P:\OneDrive\MESTRADO\IHM\IHM - v1\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.csproj.GenerateResource.cache
+P:\OneDrive\MESTRADO\IHM\IHM - v1\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.csproj.CoreCompileInputs.cache
+P:\OneDrive\MESTRADO\IHM\IHM - v1\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.exe
+P:\OneDrive\MESTRADO\IHM\IHM - v1\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.pdb
+P:\OneDrive\MESTRADO\IHM\IHM - v1\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH___MANIPULADOR.Form_Sobre.resources
+P:\OneDrive\MESTRADO\IHM\IHM - v1\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH___MANIPULADOR.Form_Cadastro.resources
+C:\Users\Vinicius Biolab\OneDrive\Manipulador_Robotico_2018\Controle\Software C#\IMH - MANIPULADOR\IMH - MANIPULADOR\bin\Debug\IMH - MANIPULADOR.exe.config
+C:\Users\Vinicius Biolab\OneDrive\Manipulador_Robotico_2018\Controle\Software C#\IMH - MANIPULADOR\IMH - MANIPULADOR\bin\Debug\IMH - MANIPULADOR.exe
+C:\Users\Vinicius Biolab\OneDrive\Manipulador_Robotico_2018\Controle\Software C#\IMH - MANIPULADOR\IMH - MANIPULADOR\bin\Debug\IMH - MANIPULADOR.pdb
+C:\Users\Vinicius Biolab\OneDrive\Manipulador_Robotico_2018\Controle\Software C#\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.csprojAssemblyReference.cache
+C:\Users\Vinicius Biolab\OneDrive\Manipulador_Robotico_2018\Controle\Software C#\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH___MANIPULADOR.Form1.resources
+C:\Users\Vinicius Biolab\OneDrive\Manipulador_Robotico_2018\Controle\Software C#\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH___MANIPULADOR.Form_Cadastro.resources
+C:\Users\Vinicius Biolab\OneDrive\Manipulador_Robotico_2018\Controle\Software C#\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH___MANIPULADOR.Form_Sobre.resources
+C:\Users\Vinicius Biolab\OneDrive\Manipulador_Robotico_2018\Controle\Software C#\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH___MANIPULADOR.Properties.Resources.resources
+C:\Users\Vinicius Biolab\OneDrive\Manipulador_Robotico_2018\Controle\Software C#\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.csproj.GenerateResource.cache
+C:\Users\Vinicius Biolab\OneDrive\Manipulador_Robotico_2018\Controle\Software C#\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.csproj.CoreCompileInputs.cache
+C:\Users\Vinicius Biolab\OneDrive\Manipulador_Robotico_2018\Controle\Software C#\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.exe
+C:\Users\Vinicius Biolab\OneDrive\Manipulador_Robotico_2018\Controle\Software C#\IMH - MANIPULADOR\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.pdb
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\bin\Debug\IMH - MANIPULADOR.exe.config
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\bin\Debug\IMH - MANIPULADOR.exe
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\bin\Debug\IMH - MANIPULADOR.pdb
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.csprojAssemblyReference.cache
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH___MANIPULADOR.Form1.resources
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH___MANIPULADOR.Form_Cadastro.resources
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH___MANIPULADOR.Form_Sobre.resources
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH___MANIPULADOR.Properties.Resources.resources
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.csproj.GenerateResource.cache
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.csproj.CoreCompileInputs.cache
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.exe
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.pdb
