@@ -16,6 +16,7 @@ using System.Globalization;
 using System.Management; // Tive que adicionar manualmente
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.Drawing.Drawing2D;
 
 namespace IMH___MANIPULADOR
 {
@@ -47,6 +48,8 @@ namespace IMH___MANIPULADOR
         String Nome_arquivo, Local_arquivo; // Nome e local dos arquivos Salvos
         byte comando;
         Int16 fa; // Freq. de amostragem
+
+        List<List<Tuple<double, double>>> CampoDeForca = new List<List<Tuple<double, double>>>();
 
         public Form1()
         {
@@ -657,14 +660,14 @@ namespace IMH___MANIPULADOR
         {
             int posx = 0;
             int posy = 0;
-            int sizex = 0;
-            int sizey;
+            float sizex = 0;
+            float sizey = 0;
             //Setando a area de fundo sob a qual o campo irá atuar
-            if(X1.Value > X2.Value)
+            if (X1.Value > X2.Value)
             {
                 posx = Convert.ToInt16(X2.Value);
                 sizex = Convert.ToInt16(X1.Value - X2.Value);
-            }else{
+            } else {
                 posx = Convert.ToInt16(X1.Value);
                 sizex = Convert.ToInt16(X2.Value - X1.Value);
             }
@@ -672,25 +675,193 @@ namespace IMH___MANIPULADOR
             {
                 posy = Convert.ToInt16(Y2.Value);
                 sizey = Convert.ToInt16(Y1.Value - Y2.Value);
-            }else{
+            } else {
                 posy = Convert.ToInt16(Y1.Value);
                 sizey = Convert.ToInt16(Y2.Value - Y1.Value);
             }
-            pbArea.Size = new Size(sizex, sizey);
+            pbArea.Size = new Size(Convert.ToInt16(sizex), Convert.ToInt16(sizey));
             pbArea.Location = new Point(posx, posy);
 
             //Plotando vetor AB
             pbA.Location = new Point(Convert.ToInt16(XA.Value), Convert.ToInt16(YA.Value));
             pbB.Location = new Point(Convert.ToInt16(XB.Value), Convert.ToInt16(YB.Value));
-            int[,] Matriz = new int [sizex,sizey];
-            for(int i =0; i<sizex; i++)
-            {
-                for(int j=0; j<sizey; j++)
-                {
 
+            //Criando campo de força
+            float intensidade = (float)Convert.ToDouble(udIntensidade.Value);
+            float[,] Matriz = new float[Convert.ToInt16(sizex), Convert.ToInt16(sizey)];
+            float[] VectorRange = new float[2];
+            VectorRange[0] = (float)Convert.ToDouble(XB.Value - XA.Value);
+            VectorRange[1] = (float)Convert.ToDouble(YB.Value - YA.Value);
+            CampoDeForca.Clear();
+            DGV.Rows.Clear();
+            DGV.Refresh();
+
+            //contras preliminares pra formula ficar legivel
+            double angulo = Convert.ToDouble(XA.Value);
+            bool invert = false;
+            double xinvert = 0;
+            if (360 >= XA.Value && XA.Value > 180)
+            {
+                angulo = angulo - 180;
+            }
+            else if(180 >= XA.Value && XA.Value >90)
+            {
+                angulo = angulo - 90;
+                invert = true;
+
+            }
+
+            double seno = Math.Sin(Convert.ToDouble(90 - angulo) * Math.PI / 180);
+            double cosseno = Math.Cos(Convert.ToDouble(90 - angulo) * Math.PI / 180);
+            seno = 2 * seno / (seno + cosseno);
+            cosseno = 2 * cosseno / (Math.Sin(Convert.ToDouble(90 - angulo) * Math.PI / 180) + cosseno);
+
+
+            if (cbTipoCampo.Text == "Constante")
+            {
+                for (int i = 0; i < sizex; i++)
+                {
+                    for (int j = 0; j < sizey; j++)
+                    {
+                        Matriz[i, j] = intensidade;
+                    }
+                }
+            }
+            else if (cbTipoCampo.Text == "Gradiente (min-max-min)")
+            {
+                for (int i = 0; i < sizex; i++)
+                {
+                    CampoDeForca.Add(new List<Tuple<double, double>>());
+                    for (int j = 0; j < sizey; j++)
+                    {
+                        if (invert == true) xinvert = sizex-i;
+                        else xinvert = i;
+                        if ((intensidade * ((xinvert / sizex) * seno) + intensidade * (((sizey - j) / sizey) * cosseno)) > intensidade)
+                        {
+                            CampoDeForca[i].Add(new Tuple<double, double>(i, intensidade - (intensidade * ((xinvert / sizex) * seno) + intensidade * (((sizey - j) / sizey) * cosseno) - intensidade)));
+                        }
+                        else
+                        {
+                            CampoDeForca[i].Add(new Tuple<double, double>(i, intensidade * ((xinvert / sizex) * seno) + intensidade * (((sizey - j) / sizey) * cosseno)));
+                        }                          
+                    }
+                }
+            }
+            else if (cbTipoCampo.Text == "Gradiente (max-min-max)")
+            {
+                for (int i = 0; i < sizex; i++)
+                {
+                    CampoDeForca.Add(new List<Tuple<double, double>>());
+                    for (int j = 0; j < sizey; j++)
+                    {
+                        if (invert == true) xinvert = sizex - i;
+                        else xinvert = i;
+                        if ((intensidade * (0.5-(xinvert / sizex) * seno) + intensidade * (0.5-((sizey - j) / sizey) * cosseno)) < 0)
+                        {
+                            CampoDeForca[i].Add(new Tuple<double, double>(i, -(intensidade * (0.5-(xinvert / sizex) * seno) + intensidade * (0.5-((sizey - j) / sizey) * cosseno))));
+                        }
+                        else
+                        {
+                            CampoDeForca[i].Add(new Tuple<double, double>(i, intensidade * (0.5-(xinvert / sizex) * seno) + intensidade * (0.5-((sizey - j) / sizey) * cosseno)));
+                        }
+                    }
+                }
+            }
+            else if (cbTipoCampo.Text == "Crescente (min-max)")
+            {
+                for (int i = 0; i < sizex; i++)
+                {
+                    CampoDeForca.Add(new List<Tuple<double, double>>());
+                    for (int j = 0; j < sizey; j++)
+                    {
+                        if (invert == true) xinvert = sizex - i;
+                        else xinvert = i;
+                        CampoDeForca[i].Add(new Tuple<double, double>(i, (intensidade * ((xinvert / sizex) * seno) + intensidade * (((sizey - j) / sizey) * cosseno))/2));
+                    }
+                }
+            }
+            else if (cbTipoCampo.Text == "Decrescente (max-min)")
+            {
+                for (int i = 0; i < sizex; i++)
+                {
+                    CampoDeForca.Add(new List<Tuple<double, double>>());
+                    for (int j = 0; j < sizey; j++)
+                    {
+                        if (invert == true) xinvert = sizex - i;
+                        else xinvert = i;
+                        CampoDeForca[i].Add(new Tuple<double, double>(i, (intensidade * (0.5 - (xinvert / sizex) * seno) + intensidade * (0.5 - ((sizey - j) / sizey) * cosseno))/2));
+                    }
                 }
             }
 
+            fillData();
+        }
+
+        //--------------------------------HEATMAP PLOT----------------------------------------------------------
+        void fillData()
+        {
+            int maxRow = CampoDeForca.Count;
+            int maxCol = CampoDeForca[0].Count;
+            double factor = 1.0;
+
+            DGV.RowHeadersVisible = false;
+            DGV.ColumnHeadersVisible = false;
+            DGV.AllowUserToAddRows = false;
+            DGV.AllowUserToOrderColumns = false;
+            DGV.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            DGV.RowTemplate.Height = 2;
+            //..
+
+            int rowHeight = DGV.ClientSize.Height / maxRow - 1;
+            int colWidth = DGV.ClientSize.Width / maxCol - 1;
+
+            for (int c = 0; c < maxRow; c++) DGV.Columns.Add(c.ToString(), "");
+            for (int c = 0; c < maxRow; c++) DGV.Columns[c].Width = colWidth;
+            DGV.Rows.Add(maxRow);
+            for (int r = 0; r < maxRow; r++) DGV.Rows[r].Height = rowHeight;
+
+            List<Color> baseColors = new List<Color>();  // create a color list
+            baseColors.Add(Color.RoyalBlue);
+            baseColors.Add(Color.LightSkyBlue);
+            baseColors.Add(Color.LightGreen);
+            baseColors.Add(Color.Yellow);
+            baseColors.Add(Color.Orange);
+            baseColors.Add(Color.Red);
+            List<Color> colors = interpolateColors(baseColors, 101);
+            for (int r = 0; r < maxRow; r++)
+            {
+                for (int c = 0; c < maxCol; c++)
+                {
+                    DGV.Columns[c].Width = 2;
+                    DGV[r, c].Style.BackColor = colors[Convert.ToInt16(CampoDeForca[r][c].Item2 * factor)];
+                }
+            }
+        }
+
+        List<Color> interpolateColors(List<Color> stopColors, int count)
+        {
+            SortedDictionary<float, Color> gradient = new SortedDictionary<float, Color>();
+            for (int i = 0; i < stopColors.Count; i++)
+                gradient.Add(1f * i / (stopColors.Count - 1), stopColors[i]);
+            List<Color> ColorList = new List<Color>();
+
+            using (Bitmap bmp = new Bitmap(count, 1))
+            using (Graphics G = Graphics.FromImage(bmp))
+            {
+                Rectangle bmpCRect = new Rectangle(Point.Empty, bmp.Size);
+                LinearGradientBrush br = new LinearGradientBrush
+                                        (bmpCRect, Color.Empty, Color.Empty, 0, false);
+                ColorBlend cb = new ColorBlend();
+                cb.Positions = new float[gradient.Count];
+                for (int i = 0; i < gradient.Count; i++)
+                    cb.Positions[i] = gradient.ElementAt(i).Key;
+                cb.Colors = gradient.Values.ToArray();
+                br.InterpolationColors = cb;
+                G.FillRectangle(br, bmpCRect);
+                for (int i = 0; i < count; i++) ColorList.Add(bmp.GetPixel(i, 0));
+                br.Dispose();
+            }
+            return ColorList;
         }
 
         private void btn_enviar_Conf_Click(object sender, EventArgs e)

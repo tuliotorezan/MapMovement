@@ -34,3 +34,13 @@ C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH -
 C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.csproj.CoreCompileInputs.cache
 C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.exe
 C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.pdb
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\bin\Debug\LiveCharts.dll
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\bin\Debug\LiveCharts.pdb
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\bin\Debug\LiveCharts.xml
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\tuliotorezan\source\repos\MapMovement\IMH - MANIPULADOR\obj\Debug\IMH - MANIPULADOR.csproj.CopyComplete

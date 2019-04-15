@@ -151,10 +151,11 @@
             this.Y1 = new System.Windows.Forms.NumericUpDown();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbTipoCampo = new System.Windows.Forms.ComboBox();
             this.label38 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.udIntensidade = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.DGV = new System.Windows.Forms.DataGridView();
             this.pbB = new System.Windows.Forms.PictureBox();
             this.pbA = new System.Windows.Forms.PictureBox();
             this.pbArea = new System.Windows.Forms.PictureBox();
@@ -184,8 +185,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Y2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.X1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Y1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udIntensidade)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArea)).BeginInit();
@@ -203,7 +205,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(16, 5, 0, 5);
-            this.menuStrip1.Size = new System.Drawing.Size(2371, 55);
+            this.menuStrip1.Size = new System.Drawing.Size(3204, 55);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -928,7 +930,7 @@
             this.gpbox_Mapeamento.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.gpbox_Mapeamento.Name = "gpbox_Mapeamento";
             this.gpbox_Mapeamento.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.gpbox_Mapeamento.Size = new System.Drawing.Size(848, 280);
+            this.gpbox_Mapeamento.Size = new System.Drawing.Size(1681, 553);
             this.gpbox_Mapeamento.TabIndex = 6;
             this.gpbox_Mapeamento.TabStop = false;
             this.gpbox_Mapeamento.Text = "Mapeamento";
@@ -1297,7 +1299,7 @@
             this.gpbox_CampoForca.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.gpbox_CampoForca.Name = "gpbox_CampoForca";
             this.gpbox_CampoForca.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.gpbox_CampoForca.Size = new System.Drawing.Size(2057, 1193);
+            this.gpbox_CampoForca.Size = new System.Drawing.Size(3139, 1513);
             this.gpbox_CampoForca.TabIndex = 9;
             this.gpbox_CampoForca.TabStop = false;
             this.gpbox_CampoForca.Text = "Campo de Força";
@@ -1325,10 +1327,10 @@
             this.groupBox3.Controls.Add(this.Y1);
             this.groupBox3.Controls.Add(this.label35);
             this.groupBox3.Controls.Add(this.label36);
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.cbTipoCampo);
             this.groupBox3.Controls.Add(this.label38);
-            this.groupBox3.Controls.Add(this.numericUpDown4);
-            this.groupBox3.Location = new System.Drawing.Point(1083, 45);
+            this.groupBox3.Controls.Add(this.udIntensidade);
+            this.groupBox3.Location = new System.Drawing.Point(2072, 39);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
@@ -1427,7 +1429,7 @@
             this.XA.Size = new System.Drawing.Size(205, 38);
             this.XA.TabIndex = 29;
             this.XA.Value = new decimal(new int[] {
-            320,
+            10,
             0,
             0,
             0});
@@ -1465,7 +1467,7 @@
             this.YA.Size = new System.Drawing.Size(205, 38);
             this.YA.TabIndex = 30;
             this.YA.Value = new decimal(new int[] {
-            320,
+            10,
             0,
             0,
             0});
@@ -1549,7 +1551,7 @@
             this.X1.Size = new System.Drawing.Size(205, 38);
             this.X1.TabIndex = 20;
             this.X1.Value = new decimal(new int[] {
-            320,
+            120,
             0,
             0,
             0});
@@ -1587,7 +1589,7 @@
             this.Y1.Size = new System.Drawing.Size(205, 38);
             this.Y1.TabIndex = 21;
             this.Y1.Value = new decimal(new int[] {
-            320,
+            120,
             0,
             0,
             0});
@@ -1614,21 +1616,21 @@
             this.label36.TabIndex = 15;
             this.label36.Text = "Vetor do Campo:";
             // 
-            // comboBox1
+            // cbTipoCampo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbTipoCampo.FormattingEnabled = true;
+            this.cbTipoCampo.Items.AddRange(new object[] {
             "Gradiente (min-max-min)",
             "Gradiente (max-min-max)",
             "Constante",
             "Crescente (min-max)",
             "Decrescente (max-min)"});
-            this.comboBox1.Location = new System.Drawing.Point(372, 650);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(355, 39);
-            this.comboBox1.TabIndex = 10;
-            this.comboBox1.Text = "Constante";
+            this.cbTipoCampo.Location = new System.Drawing.Point(372, 650);
+            this.cbTipoCampo.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.cbTipoCampo.Name = "cbTipoCampo";
+            this.cbTipoCampo.Size = new System.Drawing.Size(355, 39);
+            this.cbTipoCampo.TabIndex = 10;
+            this.cbTipoCampo.Text = "Gradiente (min-max-min)";
             // 
             // label38
             // 
@@ -1641,15 +1643,15 @@
             this.label38.TabIndex = 11;
             this.label38.Text = "Intensidade Máxima (%):";
             // 
-            // numericUpDown4
+            // udIntensidade
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(522, 596);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(205, 38);
-            this.numericUpDown4.TabIndex = 12;
-            this.numericUpDown4.Value = new decimal(new int[] {
-            80,
+            this.udIntensidade.Location = new System.Drawing.Point(522, 596);
+            this.udIntensidade.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.udIntensidade.Name = "udIntensidade";
+            this.udIntensidade.Size = new System.Drawing.Size(205, 38);
+            this.udIntensidade.TabIndex = 12;
+            this.udIntensidade.Value = new decimal(new int[] {
+            100,
             0,
             0,
             0});
@@ -1658,6 +1660,7 @@
             // 
             this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel2.Controls.Add(this.DGV);
             this.panel2.Controls.Add(this.pbB);
             this.panel2.Controls.Add(this.pbA);
             this.panel2.Controls.Add(this.pbArea);
@@ -1666,8 +1669,17 @@
             this.panel2.MaximumSize = new System.Drawing.Size(2560, 2289);
             this.panel2.MinimumSize = new System.Drawing.Size(427, 382);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(853, 763);
+            this.panel2.Size = new System.Drawing.Size(2048, 1437);
             this.panel2.TabIndex = 5;
+            // 
+            // DGV
+            // 
+            this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV.Location = new System.Drawing.Point(4, 4);
+            this.DGV.Name = "DGV";
+            this.DGV.RowTemplate.Height = 40;
+            this.DGV.Size = new System.Drawing.Size(2041, 1430);
+            this.DGV.TabIndex = 3;
             // 
             // pbB
             // 
@@ -1693,7 +1705,7 @@
             // 
             this.pbArea.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbArea.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.pbArea.Location = new System.Drawing.Point(400, 358);
+            this.pbArea.Location = new System.Drawing.Point(998, 695);
             this.pbArea.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.pbArea.Name = "pbArea";
             this.pbArea.Size = new System.Drawing.Size(53, 48);
@@ -1702,7 +1714,7 @@
             // 
             // btApply
             // 
-            this.btApply.Location = new System.Drawing.Point(1528, 1011);
+            this.btApply.Location = new System.Drawing.Point(2404, 1004);
             this.btApply.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btApply.Name = "btApply";
             this.btApply.Size = new System.Drawing.Size(267, 72);
@@ -1714,7 +1726,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2371, 1368);
+            this.ClientSize = new System.Drawing.Size(3204, 1641);
             this.Controls.Add(this.gpbox_CampoForca);
             this.Controls.Add(this.gp_sobre);
             this.Controls.Add(this.lbl_conectado);
@@ -1762,8 +1774,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Y2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.X1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Y1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udIntensidade)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArea)).EndInit();
@@ -1884,9 +1897,9 @@
         private System.Windows.Forms.NumericUpDown Y1;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbTipoCampo;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown udIntensidade;
         public System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.PictureBox pbA;
         public System.Windows.Forms.PictureBox pbArea;
@@ -1904,6 +1917,7 @@
         private System.Windows.Forms.ToolStripMenuItem paraleloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem perpendicularToolStripMenuItem;
         public System.Windows.Forms.PictureBox pbB;
+        private System.Windows.Forms.DataGridView DGV;
     }
 }
 
