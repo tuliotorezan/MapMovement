@@ -50,6 +50,9 @@ namespace IMH___MANIPULADOR
         Int16 fa; // Freq. de amostragem
 
         List<List<Tuple<double, double>>> CampoDeForca = new List<List<Tuple<double, double>>>();
+        bool paralelo = false;
+        bool perpendicular = false;
+
 
         public Form1()
         {
@@ -654,6 +657,32 @@ namespace IMH___MANIPULADOR
             gpbox_Config.Visible = false;
             gpbox_Mapeamento.Visible = false;
             gpbox_CampoForca.Visible = true;
+            paralelo = true;
+            perpendicular = false;
+            cbTipoCampo.Items.Clear();
+            cbTipoCampo.Items.Add("Constante");
+            cbTipoCampo.Items.Add("Gradiente (min-max-min)");
+            cbTipoCampo.Items.Add("Gradiente (max-min-max)");
+            cbTipoCampo.Items.Add("Crescente (min-max)");
+            cbTipoCampo.Items.Add("Decrescente (max-min)");
+        }
+
+
+        private void perpendicularToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gpbox_novoPaciente.Visible = false;
+            gpbox_Config.Visible = false;
+            gpbox_Mapeamento.Visible = false;
+            gpbox_CampoForca.Visible = true;
+            paralelo = false;
+            perpendicular = true;
+            cbTipoCampo.Items.Clear();
+            cbTipoCampo.Items.Add("Gradiente (min-max-min)");
+            cbTipoCampo.Items.Add("Gradiente (max-min-max)");
+            cbTipoCampo.Items.Add("Crescente (min-max)");
+            cbTipoCampo.Items.Add("Decrescente (max-min)");
+            cbDireita.Visible = true;
+            cbEsquerda.Visible = true;
         }
 
         private void btVisualize_Click(object sender, EventArgs e)
@@ -679,19 +708,9 @@ namespace IMH___MANIPULADOR
                 posy = Convert.ToInt16(Y1.Value);
                 sizey = Convert.ToInt16(Y2.Value - Y1.Value);
             }
-            pbArea.Size = new Size(Convert.ToInt16(sizex), Convert.ToInt16(sizey));
-            pbArea.Location = new Point(posx, posy);
-
-            //Plotando vetor AB
-            pbA.Location = new Point(Convert.ToInt16(XA.Value), Convert.ToInt16(YA.Value));
-            pbB.Location = new Point(Convert.ToInt16(XB.Value), Convert.ToInt16(YB.Value));
-
+            
             //Criando campo de força
             float intensidade = (float)Convert.ToDouble(udIntensidade.Value);
-            float[,] Matriz = new float[Convert.ToInt16(sizex), Convert.ToInt16(sizey)];
-            float[] VectorRange = new float[2];
-            VectorRange[0] = (float)Convert.ToDouble(XB.Value - XA.Value);
-            VectorRange[1] = (float)Convert.ToDouble(YB.Value - YA.Value);
             CampoDeForca.Clear();
             DGV.Rows.Clear();
             DGV.Refresh();
@@ -721,9 +740,10 @@ namespace IMH___MANIPULADOR
             {
                 for (int i = 0; i < sizex; i++)
                 {
+                    CampoDeForca.Add(new List<Tuple<double, double>>());
                     for (int j = 0; j < sizey; j++)
                     {
-                        Matriz[i, j] = intensidade;
+                        CampoDeForca[i].Add(new Tuple<double, double>(i, intensidade));
                     }
                 }
             }
@@ -789,7 +809,7 @@ namespace IMH___MANIPULADOR
                     {
                         if (invert == true) xinvert = sizex - i;
                         else xinvert = i;
-                        CampoDeForca[i].Add(new Tuple<double, double>(i, (intensidade * (0.5 - (xinvert / sizex) * seno) + intensidade * (0.5 - ((sizey - j) / sizey) * cosseno))/2));
+                        CampoDeForca[i].Add(new Tuple<double, double>(i, (intensidade * (1 - (xinvert / sizex) * seno) + intensidade * (1 - ((sizey - j) / sizey) * cosseno))/2));
                     }
                 }
             }
@@ -863,6 +883,7 @@ namespace IMH___MANIPULADOR
             }
             return ColorList;
         }
+
 
         private void btn_enviar_Conf_Click(object sender, EventArgs e)
         {

@@ -130,16 +130,10 @@
             this.gp_sobre = new System.Windows.Forms.GroupBox();
             this.gpbox_CampoForca = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btVisualize = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
-            this.XB = new System.Windows.Forms.NumericUpDown();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.YB = new System.Windows.Forms.NumericUpDown();
+            this.btVisualize = new System.Windows.Forms.Button();
             this.XA = new System.Windows.Forms.NumericUpDown();
-            this.label48 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
-            this.YA = new System.Windows.Forms.NumericUpDown();
             this.label46 = new System.Windows.Forms.Label();
             this.X2 = new System.Windows.Forms.NumericUpDown();
             this.label44 = new System.Windows.Forms.Label();
@@ -156,10 +150,9 @@
             this.udIntensidade = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DGV = new System.Windows.Forms.DataGridView();
-            this.pbB = new System.Windows.Forms.PictureBox();
-            this.pbA = new System.Windows.Forms.PictureBox();
-            this.pbArea = new System.Windows.Forms.PictureBox();
             this.btApply = new System.Windows.Forms.Button();
+            this.cbDireita = new System.Windows.Forms.CheckBox();
+            this.cbEsquerda = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.gpbox_novoPaciente.SuspendLayout();
             this.gpbox_Config.SuspendLayout();
@@ -177,10 +170,7 @@
             this.gp_sobre.SuspendLayout();
             this.gpbox_CampoForca.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.XB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.YB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.XA)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.YA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.X2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Y2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.X1)).BeginInit();
@@ -188,9 +178,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.udIntensidade)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbA)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbArea)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -329,6 +316,7 @@
             this.perpendicularToolStripMenuItem.Name = "perpendicularToolStripMenuItem";
             this.perpendicularToolStripMenuItem.Size = new System.Drawing.Size(313, 46);
             this.perpendicularToolStripMenuItem.Text = "Perpendicular";
+            this.perpendicularToolStripMenuItem.Click += new System.EventHandler(this.perpendicularToolStripMenuItem_Click);
             // 
             // gpbox_novoPaciente
             // 
@@ -1306,16 +1294,12 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btVisualize);
+            this.groupBox3.Controls.Add(this.cbEsquerda);
+            this.groupBox3.Controls.Add(this.cbDireita);
             this.groupBox3.Controls.Add(this.label37);
-            this.groupBox3.Controls.Add(this.XB);
-            this.groupBox3.Controls.Add(this.label39);
-            this.groupBox3.Controls.Add(this.label47);
-            this.groupBox3.Controls.Add(this.YB);
+            this.groupBox3.Controls.Add(this.btVisualize);
             this.groupBox3.Controls.Add(this.XA);
-            this.groupBox3.Controls.Add(this.label48);
             this.groupBox3.Controls.Add(this.label49);
-            this.groupBox3.Controls.Add(this.YA);
             this.groupBox3.Controls.Add(this.label46);
             this.groupBox3.Controls.Add(this.X2);
             this.groupBox3.Controls.Add(this.label44);
@@ -1330,14 +1314,25 @@
             this.groupBox3.Controls.Add(this.cbTipoCampo);
             this.groupBox3.Controls.Add(this.label38);
             this.groupBox3.Controls.Add(this.udIntensidade);
-            this.groupBox3.Location = new System.Drawing.Point(2072, 39);
+            this.groupBox3.Location = new System.Drawing.Point(2375, 39);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.groupBox3.Size = new System.Drawing.Size(1051, 951);
+            this.groupBox3.Size = new System.Drawing.Size(748, 951);
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Parâmetros";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(48, 511);
+            this.label37.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(220, 32);
+            this.label37.TabIndex = 35;
+            this.label37.Text = "Tipo De Campo:";
             // 
             // btVisualize
             // 
@@ -1350,75 +1345,9 @@
             this.btVisualize.UseVisualStyleBackColor = true;
             this.btVisualize.Click += new System.EventHandler(this.btVisualize_Click);
             // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(353, 448);
-            this.label37.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(72, 32);
-            this.label37.TabIndex = 37;
-            this.label37.Text = "para";
-            // 
-            // XB
-            // 
-            this.XB.Location = new System.Drawing.Point(522, 416);
-            this.XB.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.XB.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.XB.Name = "XB";
-            this.XB.Size = new System.Drawing.Size(205, 38);
-            this.XB.TabIndex = 33;
-            this.XB.Value = new decimal(new int[] {
-            320,
-            0,
-            0,
-            0});
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(437, 474);
-            this.label39.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(61, 32);
-            this.label39.TabIndex = 36;
-            this.label39.Text = "YB:";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(437, 416);
-            this.label47.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(68, 32);
-            this.label47.TabIndex = 35;
-            this.label47.Text = "XB: ";
-            // 
-            // YB
-            // 
-            this.YB.Location = new System.Drawing.Point(522, 472);
-            this.YB.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.YB.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.YB.Name = "YB";
-            this.YB.Size = new System.Drawing.Size(205, 38);
-            this.YB.TabIndex = 34;
-            this.YB.Value = new decimal(new int[] {
-            320,
-            0,
-            0,
-            0});
-            // 
             // XA
             // 
-            this.XA.Location = new System.Drawing.Point(123, 416);
+            this.XA.Location = new System.Drawing.Point(433, 392);
             this.XA.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.XA.Maximum = new decimal(new int[] {
             10000,
@@ -1434,43 +1363,15 @@
             0,
             0});
             // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(45, 472);
-            this.label48.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(61, 32);
-            this.label48.TabIndex = 32;
-            this.label48.Text = "YA:";
-            // 
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(45, 418);
+            this.label49.Location = new System.Drawing.Point(48, 396);
             this.label49.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(68, 32);
+            this.label49.Size = new System.Drawing.Size(255, 32);
             this.label49.TabIndex = 31;
-            this.label49.Text = "XA: ";
-            // 
-            // YA
-            // 
-            this.YA.Location = new System.Drawing.Point(123, 472);
-            this.YA.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.YA.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.YA.Name = "YA";
-            this.YA.Size = new System.Drawing.Size(205, 38);
-            this.YA.TabIndex = 30;
-            this.YA.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.label49.Text = "Angulação (graus):";
             // 
             // label46
             // 
@@ -1609,7 +1510,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(45, 370);
+            this.label36.Location = new System.Drawing.Point(48, 348);
             this.label36.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(243, 32);
@@ -1625,7 +1526,7 @@
             "Constante",
             "Crescente (min-max)",
             "Decrescente (max-min)"});
-            this.cbTipoCampo.Location = new System.Drawing.Point(372, 650);
+            this.cbTipoCampo.Location = new System.Drawing.Point(284, 508);
             this.cbTipoCampo.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.cbTipoCampo.Name = "cbTipoCampo";
             this.cbTipoCampo.Size = new System.Drawing.Size(355, 39);
@@ -1635,17 +1536,17 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(45, 596);
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(48, 452);
             this.label38.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(350, 32);
+            this.label38.Size = new System.Drawing.Size(327, 32);
             this.label38.TabIndex = 11;
             this.label38.Text = "Intensidade Máxima (%):";
             // 
             // udIntensidade
             // 
-            this.udIntensidade.Location = new System.Drawing.Point(522, 596);
+            this.udIntensidade.Location = new System.Drawing.Point(433, 451);
             this.udIntensidade.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.udIntensidade.Name = "udIntensidade";
             this.udIntensidade.Size = new System.Drawing.Size(205, 38);
@@ -1661,56 +1562,22 @@
             this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel2.Controls.Add(this.DGV);
-            this.panel2.Controls.Add(this.pbB);
-            this.panel2.Controls.Add(this.pbA);
-            this.panel2.Controls.Add(this.pbArea);
             this.panel2.Location = new System.Drawing.Point(16, 52);
             this.panel2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.panel2.MaximumSize = new System.Drawing.Size(2560, 2289);
             this.panel2.MinimumSize = new System.Drawing.Size(427, 382);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2048, 1437);
+            this.panel2.Size = new System.Drawing.Size(2351, 1437);
             this.panel2.TabIndex = 5;
             // 
             // DGV
             // 
             this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV.Location = new System.Drawing.Point(4, 4);
+            this.DGV.Location = new System.Drawing.Point(3, 3);
             this.DGV.Name = "DGV";
             this.DGV.RowTemplate.Height = 40;
-            this.DGV.Size = new System.Drawing.Size(2041, 1430);
+            this.DGV.Size = new System.Drawing.Size(2345, 1430);
             this.DGV.TabIndex = 3;
-            // 
-            // pbB
-            // 
-            this.pbB.BackColor = System.Drawing.Color.Red;
-            this.pbB.Location = new System.Drawing.Point(423, 379);
-            this.pbB.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.pbB.Name = "pbB";
-            this.pbB.Size = new System.Drawing.Size(10, 10);
-            this.pbB.TabIndex = 2;
-            this.pbB.TabStop = false;
-            // 
-            // pbA
-            // 
-            this.pbA.BackColor = System.Drawing.Color.Blue;
-            this.pbA.Location = new System.Drawing.Point(413, 370);
-            this.pbA.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.pbA.Name = "pbA";
-            this.pbA.Size = new System.Drawing.Size(10, 10);
-            this.pbA.TabIndex = 1;
-            this.pbA.TabStop = false;
-            // 
-            // pbArea
-            // 
-            this.pbArea.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbArea.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.pbArea.Location = new System.Drawing.Point(998, 695);
-            this.pbArea.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.pbArea.Name = "pbArea";
-            this.pbArea.Size = new System.Drawing.Size(53, 48);
-            this.pbArea.TabIndex = 0;
-            this.pbArea.TabStop = false;
             // 
             // btApply
             // 
@@ -1721,6 +1588,26 @@
             this.btApply.TabIndex = 6;
             this.btApply.Text = "Aplicar Campo";
             this.btApply.UseVisualStyleBackColor = true;
+            // 
+            // cbDireita
+            // 
+            this.cbDireita.AutoSize = true;
+            this.cbDireita.Location = new System.Drawing.Point(54, 573);
+            this.cbDireita.Name = "cbDireita";
+            this.cbDireita.Size = new System.Drawing.Size(384, 36);
+            this.cbDireita.TabIndex = 36;
+            this.cbDireita.Text = "Perpendicular para Direita";
+            this.cbDireita.UseVisualStyleBackColor = true;
+            // 
+            // cbEsquerda
+            // 
+            this.cbEsquerda.AutoSize = true;
+            this.cbEsquerda.Location = new System.Drawing.Point(54, 640);
+            this.cbEsquerda.Name = "cbEsquerda";
+            this.cbEsquerda.Size = new System.Drawing.Size(423, 36);
+            this.cbEsquerda.TabIndex = 37;
+            this.cbEsquerda.Text = "Perpendicular para Esquerda";
+            this.cbEsquerda.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1766,10 +1653,7 @@
             this.gpbox_CampoForca.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.XB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.YB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.XA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.YA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.X2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Y2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.X1)).EndInit();
@@ -1777,9 +1661,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.udIntensidade)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbArea)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1900,24 +1781,17 @@
         private System.Windows.Forms.ComboBox cbTipoCampo;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.NumericUpDown udIntensidade;
-        public System.Windows.Forms.Panel panel2;
-        public System.Windows.Forms.PictureBox pbA;
-        public System.Windows.Forms.PictureBox pbArea;
         private System.Windows.Forms.Button btApply;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.NumericUpDown XB;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.NumericUpDown YB;
         private System.Windows.Forms.NumericUpDown XA;
-        private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.NumericUpDown YA;
         private System.Windows.Forms.Button btVisualize;
         private System.Windows.Forms.ToolStripMenuItem paraleloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem perpendicularToolStripMenuItem;
-        public System.Windows.Forms.PictureBox pbB;
         private System.Windows.Forms.DataGridView DGV;
+        private System.Windows.Forms.Label label37;
+        public System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.CheckBox cbEsquerda;
+        private System.Windows.Forms.CheckBox cbDireita;
     }
 }
 
